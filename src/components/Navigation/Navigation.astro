@@ -1,0 +1,25 @@
+---
+import IMenuItem from './IMenuItem';
+import Item from './Item.astro';
+
+const menuItems: IMenuItem[] = [
+  {
+    label: 'Home',
+    url: '/',
+  },
+  {
+    label: 'Products',
+    url: '/products',
+  },
+  {
+    label: 'Blog',
+    url: '/blog',
+  },
+];
+---
+
+<nav>
+  <ul class="flex gap-5">
+    {menuItems.map(item => <Item item={item} />)}
+  </ul>
+</nav>

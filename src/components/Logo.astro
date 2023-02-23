@@ -1,0 +1,9 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name = 'SiteName' } = Astro.props;
+---
+
+<a href="/" class="text-orange-500 font-bold text-3xl">{name}</a>

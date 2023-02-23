@@ -1,0 +1,14 @@
+---
+import IMenuItem from './IMenuItem';
+
+interface Props {
+  item: IMenuItem;
+}
+
+const { item } = Astro.props;
+const { label, url, target = '_self' } = item as IMenuItem;
+---
+
+<li>
+  <a href={url} target={target} class="hover:text-orange-400 transition">{label}</a>
+</li>
