@@ -1,0 +1,31 @@
+---
+import '../styles/main.css';
+import Header from '../components/Header/Header.astro';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Astro' } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="flex flex-col h-full min-h-screen">
+			<Header className="container m-auto" />
+			<main class="container m-auto pt-12 mb-auto flex-1" >
+				<slot />
+			</main>
+			<footer class="flex justify-center mt-auto py-5 border-t bg-slate-100 shadow-lg">
+				Copyright © {new Date().getFullYear()} Astro. Halo Lab.
+			</footer>
+		</div>
+	</body>
+</html>

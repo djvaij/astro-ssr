@@ -1,0 +1,23 @@
+---
+import { getProductById } from '../../api/products';
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import { IProduct } from '../../types/productTypes';
+
+const { id } = Astro.params;
+const product: IProduct = await getProductById(id);
+
+---
+
+<MainLayout>
+  <div class="flex items-center gap-8 mb-8">
+    <h1 class="text-3xl font-bold">{product.title}</h1>
+    <div>$ {product.price}</div>
+  </div>
+  <p class="mb-8">{product.description}</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {product.images.map((image) => (
+      <img src={image} alt={product.title} />
+    ))}
+  </div>
+</MainLayout>
