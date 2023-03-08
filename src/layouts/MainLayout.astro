@@ -1,6 +1,7 @@
 ---
-import '../styles/main.css';
+import '../styles/global.css';
 import Header from '../components/Header/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -23,9 +24,7 @@ const { title = 'Astro' } = Astro.props;
 			<main class="container m-auto pt-12 mb-auto flex-1" >
 				<slot />
 			</main>
-			<footer class="flex justify-center mt-auto py-5 border-t bg-slate-100 shadow-lg">
-				Copyright © {new Date().getFullYear()} Astro. Halo Lab.
-			</footer>
+			<Footer />
 		</div>
 	</body>
 </html>
