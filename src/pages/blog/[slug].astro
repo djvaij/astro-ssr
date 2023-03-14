@@ -1,0 +1,15 @@
+---
+// @ts-nocheck
+import { getEntryBySlug } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const { slug } = Astro.params;
+
+const entry = await getEntryBySlug('blog', slug);
+
+const { Content, headings } = await entry.render();
+---
+
+<MainLayout title={entry.data.title}>
+  <Content />
+</MainLayout>
